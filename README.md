@@ -1,4 +1,3 @@
-
 # GPS Cleaner: Jitter Removal, Route Smoothing, Idling Detection, and Leaflet Visualization
 
 This project provides a production-grade pipeline to:

@@ -1,4 +1,3 @@
-
 """
 gps_cleaner package: jitter detection, route smoothing, idling detection, and visualization API.
 """
