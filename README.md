@@ -35,3 +35,63 @@ JSON array of objects:
     "lon": 72.8867883333333
   }
 ]
+```
+
+## Output
+Processed JSON and GeoJSON including:
+
+- Raw route (LineString)
+- Cleaned route (LineString)
+- Jitter points (Point features)
+- Idling points (Point features with duration)
+
+## Quick Start
+CLI
+```bash
+
+# Create venv & install deps
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+
+# Run command-line pipeline (sample input and default config)
+python -m gps_cleaner.pipeline \
+  --input data/sample/sample_raw.json \
+  --output data/sample/processed.json \
+  --config configs/default.yaml
+```
+```bash
+
+# Start Flask server
+PYTHONPATH=src flask --app gps_cleaner.web.app run --host 0.0.0.0 --port 8000
+
+# Open in browser
+http://localhost:8000
+```
+
+- Upload your JSON file from the index page
+- View raw & processed layers on the interactive map
+
+Configuration
+Edit configs/default.yaml for thresholds:
+
+- max_speed_kmh
+- speed_mad_threshold
+- bearing_change_threshold_deg
+- hampel_window_size
+- hampel_n_sigma
+- ema_alpha
+- idle_speed_kmh
+- idle_min_duration_sec
+
+## Tests
+```bash
+docker build -t gps-cleaner:latest .docker run -it --rm -p 8000:8000 -v "$PWD/data":/app/data gps-cleaner:latest
+```
+
+## Notes
+
+- Leaflet loads from CDN; internet is required to fetch Leaflet assets.
+- Time parsing expects ISO-8601 with timezone (e.g., +00:00).
+
+## License
+MIT
