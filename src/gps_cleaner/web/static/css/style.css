@@ -1,0 +1,51 @@
+
+html, body, #map {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 640px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+button {
+  padding: 8px 12px;
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.legend {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.2);
+  z-index: 1000;
+  font-family: Arial, sans-serif;
+}
+
+.legend-box {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.legend-circle {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+  vertical-align: middle;
+  border-radius: 50%;
+}

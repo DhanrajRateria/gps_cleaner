@@ -1,0 +1,17 @@
+
+# Detection thresholds and smoothing parameters
+max_speed_kmh: 180              # Hard speed cap to flag implausible points
+speed_mad_threshold: 3.5        # Robust z-score threshold (median & MAD) for speed outliers
+bearing_change_threshold_deg: 60 # Degrees; large instantaneous direction change
+min_distance_meters: 3          # Ignore extremely tiny moves when applying bearing-change rule
+
+# Hampel filter params (time series outliers on lat/lon)
+hampel_window_size: 5           # Sliding window size (odd integer recommended)
+hampel_n_sigma: 3               # Number of MADs for outlier flag
+
+# Smoothing
+ema_alpha: 0.25                 # Exponential smoothing factor in [0,1]
+
+# Idling
+idle_speed_kmh: 3               # Below this speed considered idle
+idle_min_duration_sec: 120      # Minimum accumulated duration to count as an idling segment
